@@ -52,12 +52,5 @@ public class Cachorro {
         this.idade = idade;
     }
 
-    /**
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        Cachorro cachorro = new Cachorro("Thor", "Pastor Alemão", 1);
-        cachorro.latir();
-    }
+
 }
