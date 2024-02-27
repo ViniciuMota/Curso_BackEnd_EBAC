@@ -1,16 +1,17 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Cachorro {
+//    Atributos
     private String nome;
     private String raca;
     private int idade;
-
+//  Construtor
     public Cachorro(String nome, String raca, int idade) {
         this.nome = nome;
         this.raca = raca;
         this.idade = idade;
     }
-
+//  Metodo
     public void latir(){
         System.out.println(nome + " Esta latindo");
     }
