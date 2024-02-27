@@ -1,17 +1,29 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+/**
+ * @author ViniciuMota
+ */
+
 public class Cachorro {
-//    Atributos
+
     private String nome;
     private String raca;
     private int idade;
-//  Construtor
+
+    /**
+     *
+     * @param nome
+     * @param raca
+     * @param idade
+     */
     public Cachorro(String nome, String raca, int idade) {
         this.nome = nome;
         this.raca = raca;
         this.idade = idade;
     }
-//  Metodo
+
+
     public void latir(){
         System.out.println(nome + " Esta latindo");
     }
@@ -40,6 +52,10 @@ public class Cachorro {
         this.idade = idade;
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         Cachorro cachorro = new Cachorro("Thor", "Pastor Alemão", 1);
         cachorro.latir();
