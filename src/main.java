@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * @author ViniciuMota
  */
@@ -8,7 +10,12 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-        Calculo calculo = new Calculo(8, 7, 5.5, 9);
-        calculo.calcularMedia();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Qual a sua idade? ");
+        int idade = scanner.nextInt();
+
+        Integer novaIdade = idade;
+
+        System.out.println("Sua idade é "+ novaIdade + " anos");
     }
 }
