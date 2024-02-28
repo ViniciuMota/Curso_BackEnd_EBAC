@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,37 +13,54 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
+        parte1();
+        parte2();
+    }
+
+    public static void parte1(){
         Scanner scanner = new Scanner(System.in);
-        List<Pessoa> lista = new ArrayList<>();
+
+        System.out.println("Digite os nomes separados por vírgula:");
+        String input = scanner.nextLine();
+
+        String[] nomes = input.split(",");
+
+        Arrays.sort(nomes);
+
+        System.out.println("Nomes em ordem alfabética:");
+        System.out.println(Arrays.toString(nomes));
+    }
+
+    public static void parte2(){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite os nomes e gêneros separados por vírgula (nome-gênero):");
+        String input = scanner.nextLine();
+
         List<Pessoa> masculino = new ArrayList<>();
         List<Pessoa> feminino = new ArrayList<>();
-        int res = 1;
 
-        while (res != 0) {
-            System.out.println("Qual o seu nome? ");
-            String nome = scanner.next();
+        String[] pessoas = input.split(",");
+        for (String pessoa : pessoas) {
+            String[] dados = pessoa.split("-");
+            String nome = dados[0].trim();
+            String genero = dados[1].trim();
 
-            System.out.println("Qual o seu gênero? ");
-            String genero = scanner.next();
-
-            Pessoa pessoa = new Pessoa(nome, genero);
-            lista.add(pessoa);
-
+            Pessoa p = new Pessoa(nome, genero);
             if (genero.equalsIgnoreCase("masculino")) {
-                masculino.add(pessoa);
+                masculino.add(p);
             } else if (genero.equalsIgnoreCase("feminino")) {
-                feminino.add(pessoa);
+                feminino.add(p);
             } else {
-                System.out.println("Gênero inválido. Por favor, insira 'masculino' ou 'feminino'.");
+                System.out.println("Gênero inválido para " + nome);
             }
-
-            System.out.println("Adicionar mais uma pessoa?");
-            System.out.println("1 para 'sim' 0 para 'Não'");
-            res = scanner.nextInt();
         }
 
-        System.out.println("Lista de Pessoas:");
+        System.out.println("Grupo Masculino:");
         System.out.println(masculino);
+
+        System.out.println("Grupo Feminino:");
         System.out.println(feminino);
+
     }
 }
