@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -11,11 +12,24 @@ public class main {
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Qual a sua idade? ");
-        int idade = scanner.nextInt();
 
-        Integer novaIdade = idade;
+        double notaFinal = 0;
+        double nota;
+        for (int i =0 ; i<4; i++){
+            System.out.println("Digite a nota numero"+ (i+1));
+            nota = scanner.nextDouble();
+            notaFinal += nota;
+        }
+        notaFinal = notaFinal/4;
 
-        System.out.println("Sua idade é "+ novaIdade + " anos");
+        if (notaFinal >= 7){
+            System.out.println("Sua nota foi "+ notaFinal + " você esta aprovado");
+        } else if (notaFinal >= 5) {
+            System.out.println("Sua nota foi "+ notaFinal + " você esta de recuperação");
+        }else {
+            System.out.println("Sua nota foi "+ notaFinal + " você esta reprovado");
+        }
+
+
     }
 }
