@@ -8,11 +8,18 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-        Pessoa pessoaJuridica = new PessoaJuridica("Vinicius", 24, 234987234);
-        Pessoa pessoaFisica = new PessoaFisica("Joao",24,234456678);
+        Customer customerOne = new Customer("B", true);
+        Factory factory = getCarFactory(customerOne);
+        Car carOne = factory.create(customerOne.getGradeRequest());
+        carOne.startEngine();
+    }
 
-        System.out.println("Pessoa Juridica " + pessoaJuridica);
-        System.out.println("Pessoa Fisica " + pessoaFisica);
+    private static Factory getCarFactory(Customer customer) {
+        if (customer.HasCompanyContract()){
+            return new CompanyCarFactory();
+        }else {
+            return new CarFactory();
+        }
     }
 
 }
