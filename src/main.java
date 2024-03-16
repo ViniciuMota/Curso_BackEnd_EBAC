@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author ViniciuMota
  */
@@ -8,11 +11,20 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-        Pessoa pessoaJuridica = new PessoaJuridica("Vinicius", 24, 234987234);
-        Pessoa pessoaFisica = new PessoaFisica("Joao",24,234456678);
+        // Criando uma lista para armazenar todos os tipos de carros
+        List<Carro> listaCarros = new ArrayList<>();
 
-        System.out.println("Pessoa Juridica " + pessoaJuridica);
-        System.out.println("Pessoa Fisica " + pessoaFisica);
+        Chevrolet chevrolet = new Chevrolet("Camarro", 2012);
+        Honda honda = new Honda("Civic", 2021);
+        // Adicionando carros à lista
+        listaCarros.add(chevrolet);
+
+        for (Carro carro : listaCarros) {
+            System.out.println("\nMarca: " + carro.getMarca());
+            System.out.println("\nModelo: " + carro.getModelo());
+            System.out.println("\nAno: " + carro.getAno());
+            carro.tipoCombustivel();
+        }
     }
 
 }
