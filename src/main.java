@@ -1,4 +1,5 @@
-import java.lang.annotation.Annotation;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author ViniciuMota
@@ -10,13 +11,12 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-        Cliente tab = new Cliente();
-        Annotation[] annotations =  tab.getClass().getAnnotations();
+        List<Pessoa> pessoas = new Pessoa().registroPessoas();
 
-        if(tab.getClass().isAnnotationPresent(Tabela.class)){
-            Tabela an = tab.getClass().getAnnotation(Tabela.class);
-            System.out.println("O valor da anotação Tabela é: " + an.nomeTabela());
-        }
+        List<Pessoa> pessoasF = pessoas.stream()
+                .filter(pessoa -> pessoa.getSexualidade().equals("Feminino"))
+                .collect(Collectors.toList());
+        pessoasF.forEach(pessoa -> System.out.println(pessoa));
     }
 
 }
