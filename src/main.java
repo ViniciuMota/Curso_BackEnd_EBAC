@@ -1,3 +1,5 @@
+import java.lang.annotation.Annotation;
+
 /**
  * @author ViniciuMota
  */
@@ -8,11 +10,13 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-        Pessoa pessoaJuridica = new PessoaJuridica("Vinicius", 24, 234987234);
-        Pessoa pessoaFisica = new PessoaFisica("Joao",24,234456678);
+        Cliente tab = new Cliente();
+        Annotation[] annotations =  tab.getClass().getAnnotations();
 
-        System.out.println("Pessoa Juridica " + pessoaJuridica);
-        System.out.println("Pessoa Fisica " + pessoaFisica);
+        if(tab.getClass().isAnnotationPresent(Tabela.class)){
+            Tabela an = tab.getClass().getAnnotation(Tabela.class);
+            System.out.println("O valor da anotação Tabela é: " + an.nomeTabela());
+        }
     }
 
 }
